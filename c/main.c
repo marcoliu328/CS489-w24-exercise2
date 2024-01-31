@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "config.h"
 #include "input.h"
@@ -23,6 +24,10 @@ int main(int argc, const char *argv[]) {
   }
 
 cleanup:
+  // delete the directory
+  rmdir(dir);
+  printf("deleted directory: %s", dir);
+
   free(dir);
   dir = NULL;
 
